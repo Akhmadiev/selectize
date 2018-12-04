@@ -16,4 +16,14 @@ export class BooksComponent implements OnInit {
   ngOnInit() {
   }
 
+  onKey(value: string) {
+    console.log(value);
+
+    if (value) {
+      this.books = BOOKS.filter(x => x.name.includes(value));
+    } else {
+      this.books = BOOKS;
+    }
+  }
+
 }

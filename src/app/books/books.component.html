@@ -1,19 +1,8 @@
 <h2>My books</h2>
 
-<!-- <input ng-model="searchName" type="text" placeholder="Search" />
+<input #bookName placeholder="name" (keyup)="onKey(bookName.value)"/>
 <ul>
-  <li>Name:</li>
-  <li *ngFor="let book of books">
+  <li *ngFor="let book of books;">
     <span>{{book.name}}</span>
   </li>
-</ul> -->
-
-<input #txtFname placeholder="name" />
-<tr *ngFor="let item of books | searchfilter: 'id' : txtFname.value">
-  <td>
-      {{item.id}}
-  </td>
-  <td>
-      {{item.name}}
-  </td>
-</tr>
+</ul>
