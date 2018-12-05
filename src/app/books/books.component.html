@@ -3,6 +3,9 @@
 <input #bookName placeholder="name" (keyup)="onKey(bookName.value)"/>
 <ul>
   <li *ngFor="let book of books;">
+    <input type="checkbox" (click)="select(book.id, $event.target.checked)">
     <span>{{book.name}}</span>
   </li>
 </ul>
+<br>
+<span>selected items: {{selected}}</span>

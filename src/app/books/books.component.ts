@@ -1,19 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { BOOKS } from '../mock-books';
+import { Book } from '../book';
 
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css']
 })
-export class BooksComponent implements OnInit {
-
+export class BooksComponent implements OnInit {  
   books = BOOKS;
+  selectedItems: Book[] = [];
+  selected = "";
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  select(value: number, checked: boolean) {
+    const me = this;
+    const book = BOOKS.filter(x => x.id == value)[0];
+
+    if (checked) {
+      me.selectedItems.push(book);
+    } else {
+      me.selectedItems.splice(this.selectedItems.indexOf(book), 1);
+    }
+    
+    me.selected = "";
+    me.selectedItems.forEach(function(selectedItem) {
+      me.selected += selectedItem.name + " ";
+    });
   }
 
   onKey(value: string) {
