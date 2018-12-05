@@ -6,3 +6,6 @@
     <span>{{book.name}}</span>
   </li>
 </ul>
+
+<input #newBook placeholder="add book"/><br>
+<button (click)="add(newBook.value)">submit</button>

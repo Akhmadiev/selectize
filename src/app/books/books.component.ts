@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BOOKS } from '../mock-books';
+import { Book } from '../book';
 
 @Component({
   selector: 'app-books',
@@ -14,6 +15,16 @@ export class BooksComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  add(value: string) {
+    console.log(value);
+    const ids = BOOKS.map(({ id }) => id);
+    const nextId = Math.max(...ids) + 1;
+    console.log(nextId);
+    const newBook = new Book(nextId, value);
+
+    BOOKS.push(newBook);
   }
 
   onKey(value: string) {
