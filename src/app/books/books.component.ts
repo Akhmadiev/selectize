@@ -8,8 +8,9 @@ import { Book } from '../book';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-
   books = BOOKS;
+  selectedItems: Book[] = [];
+  selected = '';
 
   constructor() {
   }
@@ -25,6 +26,21 @@ export class BooksComponent implements OnInit {
     const newBook = new Book(nextId, value);
 
     BOOKS.push(newBook);
+  }
+
+  select(value: number, checked: boolean) {
+    const me = this;
+    const book = BOOKS.filter(x => x.id === value)[0];
+
+    if (checked) {
+      me.selectedItems.push(book);
+    } else {
+      me.selectedItems.splice(this.selectedItems.indexOf(book), 1);
+    }
+    me.selected = '';
+    me.selectedItems.forEach(function(selectedItem) {
+      me.selected += selectedItem.name + ' ';
+    });
   }
 
   onKey(value: string) {
