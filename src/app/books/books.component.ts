@@ -12,10 +12,25 @@ export class BooksComponent implements OnInit {
   selectedItems: Book[] = [];
   selected = '';
 
+  addedBooks: string[] = [];
+  addedBooksValue = '';
+
+
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  onAdd(value: string) {
+    console.log(value);
+    var me = this;
+    me.addedBooks.push(value);
+
+    me.addedBooksValue = '';
+    me.addedBooks.forEach(function(x) {
+      me.addedBooksValue += x + ' ';
+    });
   }
 
   add(value: string) {

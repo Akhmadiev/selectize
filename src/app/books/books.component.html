@@ -14,3 +14,8 @@
 
 <input #newBook placeholder="add book"/><br>
 <button (click)="add(newBook.value)">submit</button>
+
+<br>
+<br>
+
+<input #bookAdd placeholder="to add" value={{addedBooksValue}} (keyup.enter)="onAdd(bookAdd.value)">
