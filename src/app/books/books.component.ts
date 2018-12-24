@@ -12,24 +12,33 @@ export class BooksComponent implements OnInit {
   selectedItems: Book[] = [];
   selected = '';
 
-  addedBooks: string[] = [];
   addedBooksValue = '';
 
-
   constructor() {
+    const me = this;
+    BOOKS.forEach(function(value) {
+      me.addedBooksValue += value.name + ' ';
+    });
   }
 
   ngOnInit() {
   }
 
   onAdd(value: string) {
-    console.log(value);
-    var me = this;
-    me.addedBooks.push(value);
+    const me = this;
+    const valueArr = value.split(' ');
+    const newValue = valueArr[valueArr.length - 1] + ' ';
+    me.addedBooksValue += newValue;
+    me.add(newValue);
+  }
 
+  onRemove() {
+    const book = BOOKS[BOOKS.length - 1];
+    const me = this;
     me.addedBooksValue = '';
-    me.addedBooks.forEach(function(x) {
-      me.addedBooksValue += x + ' ';
+    BOOKS.splice(this.selectedItems.indexOf(book), 1);
+    BOOKS.forEach(function(value) {
+      me.addedBooksValue += value.name + ' ';
     });
   }
 
@@ -48,8 +57,10 @@ export class BooksComponent implements OnInit {
     const book = BOOKS.filter(x => x.id === value)[0];
 
     if (checked) {
+      book.checked = true;
       me.selectedItems.push(book);
     } else {
+      book.checked = false;
       me.selectedItems.splice(this.selectedItems.indexOf(book), 1);
     }
     me.selected = '';
@@ -60,12 +71,19 @@ export class BooksComponent implements OnInit {
 
   onKey(value: string) {
     console.log(value);
+    const me = this;
+    value = value.toLowerCase();
 
     if (value) {
-      this.books = BOOKS.filter(x => x.name.includes(value));
+      this.books = BOOKS.filter(x => x.name.toLowerCase().includes(value));
     } else {
       this.books = BOOKS;
     }
+
+    me.addedBooksValue = '';
+    this.books.forEach(function(selectedItem) {
+      me.addedBooksValue += selectedItem.name + ' ';
+    });
   }
 
 }

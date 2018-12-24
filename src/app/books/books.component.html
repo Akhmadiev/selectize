@@ -3,7 +3,7 @@
 <input #bookName placeholder="name" (keyup)="onKey(bookName.value)"/>
 <ul>
   <li *ngFor="let book of books;">
-    <input type="checkbox" (click)="select(book.id, $event.target.checked)">
+    <input type="checkbox" [checked]="book.checked" (click)="select(book.id, $event.target.checked)" >
     <span>{{book.name}}</span>
   </li>
 </ul>
@@ -18,4 +18,4 @@
 <br>
 <br>
 
-<input #bookAdd placeholder="to add" value={{addedBooksValue}} (keyup.enter)="onAdd(bookAdd.value)">
+<input id="bookAdd" type="text" #bookAdd placeholder="to add" value={{addedBooksValue}} (keyup.enter)="onAdd(bookAdd.value)" (keyup.backspace)="onRemove()">
