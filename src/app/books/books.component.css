@@ -1,3 +1,83 @@
-#bookAdd {
+.selectize-control {
+    font-weight: normal;
+    line-height: 0;
     width: 400px;
-  }
+    position: relative;
+}
+
+.selectize-control.multi .selectize-input.has-items {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.selectize-control.multi .selectize-input.has-items {
+    padding: 5px 8px 2px;
+}
+.selectize-input {
+    position: relative;
+    width: 100%;
+    padding: 8px 8px;
+    overflow: hidden;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.selectize-dropdown, .selectize-input, .selectize-input input {
+    font-family: inherit;
+    font-size: 13px;
+    -webkit-font-smoothing: inherit;
+    line-height: 18px;
+    color: #303030;
+}
+
+.selectize-control.multi .selectize-input [data-value] {
+    text-shadow: 0 1px 0 rgba(0, 51, 83, 0.3);
+    background-color: #1b9dec;
+    background-image: -moz-linear-gradient(top, #1da7ee, #178ee9);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1da7ee), to(#178ee9));
+    background-image: -webkit-linear-gradient(top, #1da7ee, #178ee9);
+    background-image: -o-linear-gradient(top, #1da7ee, #178ee9);
+    background-image: linear-gradient(to bottom, #1da7ee, #178ee9);
+    background-repeat: repeat-x;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1da7ee', endColorstr='#ff178ee9', GradientType=0);
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.03);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.selectize-control.multi .selectize-input > div {
+    padding: 2px 6px;
+    margin: 0 3px 3px 0;
+    color: #ffffff;
+    cursor: pointer;
+    background: #1da7ee;
+    border: 1px solid #0073bb;
+}
+
+.selectize-input > * {
+    display: -moz-inline-stack;
+    display: inline-block;
+    *display: inline;
+    vertical-align: baseline;
+    zoom: 1;
+}
+
+.selectize-input::after {
+    display: block;
+    clear: left;
+    content: ' ';
+}
+
+#input-tags-selectized {
+    position: absolute;
+    border: 0;
+    width:100%;
+    box-sizing:border-box;
+}
+
+#input-tags-selectized:focus{
+    outline: none;
+}

@@ -8,7 +8,13 @@
   </li>
 </ul>
 
-<span>selected items: {{selected}}</span>
+<div class="selectize-control demo-default multi">
+  <div class="selectize-input items not-full has-options has-items">
+    <div class="item" *ngFor="let book of books;">{{book.name}}</div>
+    <input type="text" autocomplete="off" tabindex="" id="input-tags-selectized">
+</div>
+
+
 <br>
 <br>
 
@@ -17,5 +23,7 @@
 
 <br>
 <br>
+
+
 
 <input id="bookAdd" type="text" #bookAdd placeholder="to add" value={{addedBooksValue}} (keyup.enter)="onAdd(bookAdd.value)" (keyup.backspace)="onRemove()">

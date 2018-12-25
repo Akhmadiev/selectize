@@ -47,7 +47,7 @@ export class BooksComponent implements OnInit {
     const ids = BOOKS.map(({ id }) => id);
     const nextId = Math.max(...ids) + 1;
     console.log(nextId);
-    const newBook = new Book(nextId, value);
+    const newBook = new Book(nextId, value, false);
 
     BOOKS.push(newBook);
   }
