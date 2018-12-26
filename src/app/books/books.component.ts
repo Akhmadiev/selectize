@@ -33,13 +33,16 @@ export class BooksComponent implements OnInit {
   }
 
   onRemove() {
-    const book = BOOKS[BOOKS.length - 1];
-    const me = this;
-    me.addedBooksValue = '';
-    BOOKS.splice(this.selectedItems.indexOf(book), 1);
-    BOOKS.forEach(function(value) {
-      me.addedBooksValue += value.name + ' ';
-    });
+    const books = BOOKS.filter(x => !x.checked);
+    this.books = books;
+
+    // const book = BOOKS[BOOKS.length - 1];
+    // const me = this;
+    // me.addedBooksValue = '';
+    // BOOKS.splice(this.selectedItems.indexOf(book), 1);
+    // BOOKS.forEach(function(value) {
+    //   me.addedBooksValue += value.name + ' ';
+    // });
   }
 
   add(value: string) {
@@ -49,24 +52,29 @@ export class BooksComponent implements OnInit {
     console.log(nextId);
     const newBook = new Book(nextId, value, false);
 
-    BOOKS.push(newBook);
+    this.books.push(newBook);
   }
 
-  select(value: number, checked: boolean) {
-    const me = this;
-    const book = BOOKS.filter(x => x.id === value)[0];
+  // select(value: number, checked: boolean) {
+  //   const me = this;
+  //   const book = BOOKS.filter(x => x.id === value)[0];
 
-    if (checked) {
-      book.checked = true;
-      me.selectedItems.push(book);
-    } else {
-      book.checked = false;
-      me.selectedItems.splice(this.selectedItems.indexOf(book), 1);
-    }
-    me.selected = '';
-    me.selectedItems.forEach(function(selectedItem) {
-      me.selected += selectedItem.name + ' ';
-    });
+  //   if (checked) {
+  //     book.checked = true;
+  //     me.selectedItems.push(book);
+  //   } else {
+  //     book.checked = false;
+  //     me.selectedItems.splice(this.selectedItems.indexOf(book), 1);
+  //   }
+  //   me.selected = '';
+  //   me.selectedItems.forEach(function(selectedItem) {
+  //     me.selected += selectedItem.name + ' ';
+  //   });
+  // }
+
+  select(value: number) {
+    const book = this.books.filter(x => x.id === value)[0];
+    book.checked = !book.checked;
   }
 
   onKey(value: string) {
