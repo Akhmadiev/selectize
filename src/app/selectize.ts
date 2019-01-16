@@ -1,4 +1,4 @@
-export class Book {
+export class Selectize {
     id: number;
     name: string;
     checked: boolean;

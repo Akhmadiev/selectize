@@ -1,0 +1,16 @@
+<input type="text" #filter placeholder="filter" id="selectize-input-filter" (keyup)="onFilter(filter.value)">
+<br>
+<br>
+<div class="selectize-control demo-default multi">
+  <div class="selectize-input items not-full has-options has-items">
+    <div class="item" *ngFor="let selectize of selectizes;" (click)="onSelect(selectize.id)"
+    [ngStyle]="{'background':selectize.checked ? '#333333' : '#1da7ee' }">
+       {{selectize.name}}
+    </div>
+    <div id="selectize-remove"
+    [ngStyle]="{'visibility':selectizeremovevisible ? 'visible' : 'hidden' }"
+    (click)="onRemove()"></div>
+    <input type="text" #add id="input-tags-selectized"
+     (keyup.enter)="onAdd(add.value); add.value = ''" >
+  </div>
+</div>

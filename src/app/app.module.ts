@@ -2,13 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { BooksComponent } from './books/books.component';
+import { SelectizesComponent } from './selectizes/selectizes.component';
 import { SearchFilterPipe } from './searchFilterPipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BooksComponent,
+    SelectizesComponent,
     SearchFilterPipe
   ],
   imports: [
