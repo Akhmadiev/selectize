@@ -1,4 +1,4 @@
-<input type="text" #filter placeholder="filter" id="selectize-input-filter" (keyup)="onFilter(filter.value)">
+<input type="text" placeholder="filter" id="selectize-input-filter" #filter (keyup)="onFilter(filter.value);">
 <br>
 <br>
 <div class="selectize-control demo-default multi">
@@ -9,7 +9,7 @@
     </div>
     <div id="selectize-remove"
     [ngStyle]="{'visibility':selectizeremovevisible ? 'visible' : 'hidden' }"
-    (click)="onRemove()"></div>
+    (click)="onRemove(); filter.value=''"></div>
     <input type="text" #add id="input-tags-selectized"
      (keyup.enter)="onAdd(add.value); add.value = ''" >
   </div>

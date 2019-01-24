@@ -28,6 +28,8 @@ export class SelectizesComponent implements OnInit {
       this.id = id + 1;
     }
   }
+  @Output() selectizeChange = new EventEmitter();
+
 
   constructor() {
   }
@@ -51,10 +53,9 @@ export class SelectizesComponent implements OnInit {
   }
 
   onRemove() {
-    const selectizes = this.selectizes.filter(x => !x.checked);
-    this.allselectizes = selectizes;
-    this.selectizes = this.allselectizes;
+    this.selectizes = this.allselectizes.filter(x => !x.checked);
     this.selectizeremovevisible = false;
+    this.selectizeChange.emit(this.selectizes);
   }
 
   onSelect(value: number) {

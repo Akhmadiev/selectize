@@ -1,1 +1,4 @@
 <app-selectizes [(selectize)]="selectizes"></app-selectizes>
+<div *ngFor="let selectize of selectizes;">
+    {{selectize.name}}
+</div>
